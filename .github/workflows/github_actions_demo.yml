@@ -12,6 +12,11 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: Creating virtual environment and installing dependenies.
+        run: |
+          python -m venv .venv
+          python -m source .venv/bin/activate
+          python -m pip install -r requirements.txt
       - name: Booting FastAPI server.
         run: |
           fastapi run
