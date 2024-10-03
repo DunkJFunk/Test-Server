@@ -15,7 +15,7 @@ jobs:
       - name: Creating virtual environment and installing dependenies.
         run: |
           python -m venv .venv
-          python -m source .venv/bin/activate
+          source .venv/bin/activate
           python -m pip install -r requirements.txt
       - name: Booting FastAPI server.
         run: |
