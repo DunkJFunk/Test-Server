@@ -21,6 +21,7 @@ jobs:
 # Setup Instance
 #   - Check out repository code
 #   - Make sure the repository is able to receive calls from the runner
+#     - Creating and activating .venv file
 #     - Running 'fastapi run' inside of the container through bash or zsh
 #   - Access the necessary files inside of the repository (.html)
 # Running Tests
