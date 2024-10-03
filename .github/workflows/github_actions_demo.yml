@@ -1,0 +1,28 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Setup-Instance:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code and clone to runner.
+        uses: actions/checkout@v4
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - name: Booting FastAPI server.
+        run: |
+          fastapi run
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+
+
+# Setup Instance
+#   - Check out repository code
+#   - Make sure the repository is able to receive calls from the runner
+#     - Running 'fastapi run' inside of the container through bash or zsh
+#   - Access the necessary files inside of the repository (.html)
+# Running Tests
+#   - Be able to access CrossGPT (a.k.a. a seperate public repository)
+#   - Call the main.py function with our desired variables (FILE1 and FILE2)
