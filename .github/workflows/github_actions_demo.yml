@@ -30,7 +30,6 @@ jobs:
       - name: Setting environment variables.
         run: |
           echo "export OPENAI_API_KEY=m"
-            - name: List files in the repository
       - name: List GPT files.
         run: |
           ls ${{ github.workspace }}
