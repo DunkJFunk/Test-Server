@@ -22,11 +22,18 @@ jobs:
       - name: Grabbing CrossGPT code.
         uses: actions/checkout@master
         with:
-          repository: DunkJFunk/WorldSaver
+          repository: SkylightHQ/CrossGPT
           ref: refs/heads/main
       - name: List GPT files.
+        working-directory: ./CrossGPT
         run: |
-          ls ${{ github.workspace }}
+          ls -a ${{ github.workspace }}
+      - name: Creating virtual environment and installing dependenies.
+        working-directory: ./CrossGPT
+        run: |
+          echo "python -m venv .venv"
+          echo "source .venv/bin/activate"
+          echo "python -m pip install -r requirements.txt"
       
 # Setup Instance
 #   - Check out repository code
