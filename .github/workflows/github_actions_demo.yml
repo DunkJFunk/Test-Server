@@ -22,7 +22,7 @@ jobs:
       - name: Grabbing CrossGPT code.
         uses: actions/checkout@master
         with:
-          repository: SkylightHQ/CrossGPT
+          repository: skylight-hq/CrossGPT
           ref: refs/heads/main
       - name: List GPT files.
         working-directory: ./CrossGPT
