@@ -26,7 +26,7 @@ jobs:
           ref: refs/heads/main
       - name: List GPT files.
         run: |
-          echo "ls"
+          ls ${{ github.workspace }}
       
 # Setup Instance
 #   - Check out repository code
