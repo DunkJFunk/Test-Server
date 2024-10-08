@@ -2,7 +2,7 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Setup-Instance:
+  setup:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code and clone to runner.
@@ -10,16 +10,13 @@ jobs:
       - name: Creating virtual environment and installing dependenies.
         run: |
           echo "python -m venv .venv"
-      - name: Loading virtual environment.
-        run: |
           echo "source .venv/bin/activate"
-      - name: Installing dependencies.
-        run: |
           echo "python -m pip install -r requirements.txt"
       - name: Booting FastAPI server.
         run: |
           echo "fastapi run"
-  Testing:
+  testing:
+    needs: setup # Dependant on the setup job function
     runs-on: ubuntu-latest
     steps:
       - name: Grabbing CrossGPT code.
@@ -27,13 +24,9 @@ jobs:
         with:
           name: DunkJFunk/CrossGPT     <-- clone https://github.com/org1/repo1
           ref: refs/heads/main
-      - name: Setting environment variables.
-        run: |
-          echo "export OPENAI_API_KEY=m"
       - name: List GPT files.
         run: |
-          ls
-
+          echo "ls"
       
 # Setup Instance
 #   - Check out repository code
