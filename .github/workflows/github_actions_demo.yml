@@ -1,5 +1,5 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: CrossGPT QA Analysis
+run-name: ${{ github.actor }} is testing with CrossGPT
 on: [push]
 jobs:
   setup:
@@ -22,7 +22,7 @@ jobs:
       - name: Grabbing CrossGPT code.
         uses: actions/checkout@master
         with:
-          repository: DunkJFunk/CrossGPT
+          repository: DunkJFunk/WorldSaver
           ref: refs/heads/main
       - name: List GPT files.
         run: |
