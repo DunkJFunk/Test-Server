@@ -12,13 +12,14 @@ jobs:
           echo "python -m venv .venv"
           echo "source .venv/bin/activate"
           echo "python -m pip install -r requirements.txt"
-      - name: Booting FastAPI server.
-        run: |
-          echo "fastapi run"
       - name: Initialize Access Keys
         run: |
           eval `ssh-agent -s`
           echo "ssh-add - <<< '${{ secrets.GITHUBACTIONSTWO }}'"
+          echo "python -m pip install -r requirements.txt"
+      - name: Booting FastAPI server.
+        run: |
+          echo "fastapi run"
   testing:
     needs: setup # Dependant on the setup job function
     runs-on: ubuntu-latest
