@@ -18,6 +18,7 @@ jobs:
           ssh-add - <<< "${{ secrets.GITHUBACTIONSTWO }}"
       - name: Running FastAPI
         run: |
+          . .venv/bin/activate
           fastapi run run.py
   testing:
     needs: setup # Dependant on the setup job function
@@ -36,9 +37,10 @@ jobs:
       - name: List GPT files.
         run: |
           ls -a
-      - name: Execute API Call
+      - name: 
         run: |
-          python main.py
+          . .venv/bin/activate
+          fastapi run bolognasandwich.py
 # Setup Instance
 #   - Check out repository code
 #   - Make sure the repository is able to receive calls from the runner
