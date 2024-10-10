@@ -23,7 +23,7 @@ jobs:
       - name: Grabbing CrossGPT code.
         uses: actions/checkout@master
         with:
-          repository: DunkJFunk/TestApp
+          repository: DunkJFunk/CrossGPT
           ref: refs/heads/main
       - name: Creating virtual environment and installing dependenies.
         run: |
