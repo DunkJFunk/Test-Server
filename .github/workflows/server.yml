@@ -16,6 +16,9 @@ jobs:
         run: |
           eval `ssh-agent -s`
           ssh-add - <<< "${{ secrets.GITHUBACTIONSTWO }}"
+      - name: Running FastAPI
+        run: |
+          fastapi run run.py
   testing:
     needs: setup # Dependant on the setup job function
     runs-on: ubuntu-latest
@@ -23,7 +26,7 @@ jobs:
       - name: Grabbing CrossGPT code.
         uses: actions/checkout@master
         with:
-          repository: DunkJFunk/CrossGPT
+          repository: DunkJFunk/TestApp
           ref: refs/heads/main
       - name: Creating virtual environment and installing dependenies.
         run: |
@@ -33,7 +36,9 @@ jobs:
       - name: List GPT files.
         run: |
           ls -a
-      
+      - name: Execute API Call
+        run: |
+          python main.py
 # Setup Instance
 #   - Check out repository code
 #   - Make sure the repository is able to receive calls from the runner
