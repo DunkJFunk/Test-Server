@@ -9,17 +9,17 @@ jobs:
         uses: actions/checkout@v4
       - name: Creating virtual environment and installing dependenies.
         run: |
-          echo "python -m venv .venv"
-          echo "source .venv/bin/activate"
-          echo "python -m pip install -r requirements.txt"
+          python -m venv .venv
+          source .venv/bin/activate
+          python -m pip install -r requirements.txt
       - name: Initialize Access Keys
         run: |
           eval `ssh-agent -s`
-          echo "ssh-add - <<< '${{ secrets.GITHUBACTIONSTWO }}'"
-          echo "python -m pip install -r requirements.txt"
+          ssh-add - <<< '${{ secrets.GITHUBACTIONSTWO }}'
+          python -m pip install -r requirements.txt
       - name: Booting FastAPI server.
         run: |
-          echo "fastapi run"
+          fastapi run
   testing:
     needs: setup # Dependant on the setup job function
     runs-on: ubuntu-latest
@@ -29,14 +29,14 @@ jobs:
         with:
           repository: DunkJFunk/TestApp
           ref: refs/heads/main
+      - name: Creating virtual environment and installing dependenies.
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          python -m pip install -r requirements.txt
       - name: List GPT files.
         run: |
           ls -a
-      - name: Creating virtual environment and installing dependenies.
-        run: |
-          echo "python -m venv .venv"
-          echo "source .venv/bin/activate"
-          echo "python -m pip install -r requirements.txt"
       
 # Setup Instance
 #   - Check out repository code
