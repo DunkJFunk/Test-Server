@@ -30,11 +30,9 @@ jobs:
           repository: DunkJFunk/TestApp
           ref: refs/heads/main
       - name: List GPT files.
-        working-directory: ./TestApp
         run: |
           ls -a
       - name: Creating virtual environment and installing dependenies.
-        working-directory: ./TestApp
         run: |
           echo "python -m venv .venv"
           echo "source .venv/bin/activate"
