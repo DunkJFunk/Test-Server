@@ -27,14 +27,14 @@ jobs:
       - name: Grabbing CrossGPT code.
         uses: actions/checkout@master
         with:
-          repository: DunkJFunk/CrossGPT
+          repository: DunkJFunk/TestApp
           ref: refs/heads/main
       - name: List GPT files.
-        working-directory: ./CrossGPT
+        working-directory: ./TestApp
         run: |
           ls -a ${{ github.workspace }}
       - name: Creating virtual environment and installing dependenies.
-        working-directory: ./CrossGPT
+        working-directory: ./TestApp
         run: |
           echo "python -m venv .venv"
           echo "source .venv/bin/activate"
