@@ -16,10 +16,9 @@ jobs:
         run: |
           eval `ssh-agent -s`
           ssh-add - <<< '${{ secrets.GITHUBACTIONSTWO }}'
-          python -m pip install -r requirements.txt
       - name: Booting FastAPI server.
         run: |
-          fastapi run
+          python -m fastapi run run.py
   testing:
     needs: setup # Dependant on the setup job function
     runs-on: ubuntu-latest
