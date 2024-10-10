@@ -73,4 +73,3 @@ tornado==6.4.1
 turbo==0.5.1
 typing_extensions==4.12.2
 urllib3==2.2.3
-git+https://github.com/DunkJFunk/CrossGPT.git
