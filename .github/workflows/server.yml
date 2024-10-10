@@ -39,8 +39,7 @@ jobs:
           ls -a
       - name: 
         run: |
-          source .venv/bin/activate
-          fastapi run bolognasandwich.py
+          .venv/bin/fastapi run bolognasandwich.py
 # Setup Instance
 #   - Check out repository code
 #   - Make sure the repository is able to receive calls from the runner
