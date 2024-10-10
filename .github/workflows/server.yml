@@ -17,7 +17,8 @@ jobs:
           echo "fastapi run"
       - name: Initialize Access Keys
         run: |
-          ssh-add - <<< '${{ secrets.GITHUBACTIONSTWO }}'
+          eval `ssh-agent -s`
+          echo "ssh-add - <<< '${{ secrets.GITHUBACTIONSTWO }}'"
   testing:
     needs: setup # Dependant on the setup job function
     runs-on: ubuntu-latest
